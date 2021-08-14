@@ -42,4 +42,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //生成用户头像
+    public function gravatar()
+    {
+        $hash = md5(strtolower(trim($this->attributes['email'])));
+        return "https://api.multiavatar.com/$hash.png";
+    }
 }
