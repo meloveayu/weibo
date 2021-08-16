@@ -20,7 +20,7 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($creditials))
+        if(Auth::attempt($creditials,$request->has('remember')))
         {
             //登录成功
             session()->flash('success','欢迎回来！');
@@ -38,7 +38,7 @@ class SessionsController extends Controller
     public function destroy()
     {
         Auth::logout();
-        session()->flash('success'.'您已成功推出！');
+        session()->flash('success'.'您已成功退出！');
         return redirect('login');
     }
 }
