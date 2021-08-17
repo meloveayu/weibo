@@ -12,7 +12,7 @@
         @include('shared._errors')
 
         <div class="gravatar_edit">
-          <a href="http://gravatar.com/emails" target="_blank">
+          <a href="https://multiavatar.com/" target="_blank">
             <img src="{{ $user->gravatar() }}" alt="{{ $user->name }}" class="gravatar"/>
           </a>
         </div>
