@@ -47,6 +47,6 @@ class User extends Authenticatable
     public function gravatar()
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));
-        return "https://api.multiavatar.com/$hash.png";
+        return "https://api.multiavatar.com/$hash.png?apikey=ztOs7Z1hg2VeYk";
     }
 }

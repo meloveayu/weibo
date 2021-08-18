@@ -13,7 +13,7 @@ class UsersController extends Controller
         //除了show，create，store，其他都要过滤，登录才能访问
         $this->middleware('auth',[
             'except' => [
-                'show','create','store'
+                'show','create','store','index'
                 ]
         ]);
 
@@ -78,7 +78,7 @@ class UsersController extends Controller
 
     public function index()
     {
-        $user = User::all();
-        return view('users.index',cpmpact('users'));
+        $users = User::paginate(6);
+        return view('users.index',compact('users'));
     }
 }
