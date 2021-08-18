@@ -75,4 +75,10 @@ class UsersController extends Controller
 
         return redirect()->route('users.show', $user->id);
     }
+
+    public function index()
+    {
+        $user = User::all();
+        return view('users.index',cpmpact('users'));
+    }
 }
