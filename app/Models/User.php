@@ -59,4 +59,9 @@ class User extends Authenticatable
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "https://api.multiavatar.com/$hash.png?apikey=ztOs7Z1hg2VeYk";
     }
+
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
 }
