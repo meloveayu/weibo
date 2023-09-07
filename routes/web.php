@@ -18,3 +18,5 @@ Route::get('/help',"StaticPagesController@help")->name('help');
 Route::get('/about',"StaticPagesController@about")->name('about');
 
 Route::get('/signup','UsersController@create')->name('signup');
+//resource路由相当于增加了资源的增删改查路由，一个顶多个
+Route::resource('users','UsersController');
