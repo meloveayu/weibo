@@ -25,6 +25,17 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|confirmed|min:6'
         ]);
+
+        //这个地方就是把的收到的数据保存数据库
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
+        //保存之后重定向到
+        return redirect()->route('users.show', [$user]);
     }
 
     public function show(User $user)
